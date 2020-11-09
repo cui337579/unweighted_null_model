@@ -115,7 +115,6 @@ def  random_1k(G0,nswap=1,max_tries=100,connected=1):
 
 
 #基于断边重连的2阶零模型
-
 def random_2k(G0,nswap=1,max_tries=100,connected=1):
 
     if not nx.is_connected(G0):
@@ -321,7 +320,6 @@ def random_3k(G0, nswap=1, max_tries=100, connected=1):
 
 
 #弱富人俱乐部零模型
-
 def rich_club_break(G0,k=10,nswap=1,max_tries=100,connected=1):
 
     if not nx.is_connected(G0):
@@ -376,7 +374,6 @@ def rich_club_break(G0,k=10,nswap=1,max_tries=100,connected=1):
     return G
 
 #强富人俱乐部零模型
-
 def rich_club_create(G0, k=1, nswap=1, max_tries=100, connected=1):
     """
     任选两条边(富节点和非富节点的连边)，若富节点间无连边，非富节点间无连边，则断边重连
@@ -448,7 +445,6 @@ def rich_club_create(G0, k=1, nswap=1, max_tries=100, connected=1):
 
 
 #强同配零模型
-
 def assort_mixing(G0,nswap=1,max_tries=100,connected=1):
     if not nx.is_connected(G0):
         raise nx.NetworkXError("非连通图，必须为连通图")
@@ -501,7 +497,6 @@ def assort_mixing(G0,nswap=1,max_tries=100,connected=1):
     return G
 
 #强异配零模型
-
 def disassort_mixing(G0,nswap=1, max_tries=100, connected=1):
     """
     随机选取两条边，四个节点，将这四个节点的度值从大到小排序，

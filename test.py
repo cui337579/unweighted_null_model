@@ -3,7 +3,7 @@ import random
 import copy
 import matplotlib.pyplot as plt
 
-fh = open("IEEE118_rich.txt", 'rb')
+fh = open("IEEE118.txt", 'rb')
 G = nx.read_edgelist(fh)
 fh.close()
 G0 = G.to_undirected()
