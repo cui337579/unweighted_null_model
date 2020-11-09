@@ -1,2 +1,5 @@
-# unweighted_null_model
+unweighted_null_model
+========================
 包含了基于断边重连的0、1、2、2.5、3阶零模型，以及强富人俱乐部、弱富人俱乐部、强同配、强异配零模型
+其中需要的包为networkx2.5
+inner_random
