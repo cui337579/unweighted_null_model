@@ -134,22 +134,3 @@ def Q_decrease(G0,node_community_list,nswap=1,max_tries=100):
                         swapcount+=1							  # 改变成功次数加1
 
     return G
-
-
-G0=nx.read_edgelist('IEEE118.txt')
-M=nx.number_of_edges(G0)
-Gi = ig.Graph.Read_Edgelist("IEEE118.txt")  # 基于这些连边使用igraph创建一个新网络
-Gi = Gi.as_undirected()
-h1 = Gi.community_edge_betweenness(clusters=None, directed=False, weights=None)
-community_list = list(h1.as_clustering())
-del community_list[0]
-community_list_s=community_list
-for i in range(0,len(community_list)):
-    community_list_s[i]=map(str, community_list[i])
-G=Q_decrease(G0,community_list_s,nswap=100, max_tries=20*M)
-n1 = len(G.nodes())
-m1 = len(G.edges())
-
-print(n1)
-print(m1)
-nx.write_edgelist(G,'IEEE118_decrease.txt',data=False)
