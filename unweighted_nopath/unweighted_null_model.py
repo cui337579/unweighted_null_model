@@ -318,7 +318,24 @@ def random_3k(G0, nswap=1, max_tries=100, connected=1):
     return G
 
 
+fh = open("IEEE118.txt", 'rb')
+G = nx.read_edgelist(fh)
+fh.close()
+G0 = G.to_undirected()
 
+sawpn = 500
+max_tries = 2000
+connected=1
+
+G1 = random_0k(G0,sawpn,max_tries,connected)
+fh = open("IEEE118_0K.txt", 'wb')
+nx.write_edgelist(G1, fh, data=False)
+fh.close()
+n1 = len(G1.nodes())
+m1 = len(G1.edges())
+
+print(n1)
+print(m1)
 
 
 

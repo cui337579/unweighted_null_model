@@ -373,3 +373,19 @@ def  weakenClu(G0,nswap=1,max_tries=100,connected=1):
     return G
 
 
+
+fh1 = open("IEEE118.txt", 'rb')
+G = nx.read_edgelist(fh1)
+fh1.close()
+G0 = G.to_undirected()
+
+G1 = enhanceClu(G0,nswap=1000,max_tries=10000000,connected=1)
+fh2 = open("IEEE118_enhanceClu.txt", 'wb')
+nx.write_edgelist(G1, fh2, data=False)
+fh2.close()
+
+fh = open("IEEE118_enhanceClu.txt", 'rb')
+G = nx.read_edgelist(fh)
+fh.close()
+
+

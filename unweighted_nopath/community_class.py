@@ -697,5 +697,33 @@ def Q_decrease(G0,node_community_list,nswap=1,max_tries=100):
     return G
 
 
+G0=nx.read_edgelist('IEEE300.txt')
+M=nx.number_of_edges(G0)
+Gi = ig.Graph.Read_Edgelist("IEEE300.txt")  # 基于这些连边使用igraph创建一个新网络
+Gi = Gi.as_undirected()
+# h1 = Gi.community_edge_betweenness(clusters=None, directed=False, weights=None)
+# community_list = list(h1.as_clustering())
+
+community_list0 = Gi.community_multilevel(weights=None,return_levels=False)
+community_list1 = []
+for item in community_list0:
+    community_list1.append(item)
+
+del community_list1[0]
+community_list_s=community_list1
+for i in range(0,len(community_list1)):
+    community_list_s[i]=map(str, community_list1[i])
+
+# G=Q_decrease(G0,community_list_s,nswap=100, max_tries=20*M)
+G=Q_decrease(G0,community_list_s,nswap=200, max_tries=100000)
+nx.write_edgelist(G,'IEEE300_decrease.txt',data=False)
+
+Gi=ig.Graph.Read_Edgelist("IEEE300_decrease.txt")
+Gii=Gi.as_undirected()
+
+communities = Gii.community_multilevel(weights=None, return_levels=False)
+Q=Gii.modularity(communities,weights=None)
+print Q
+
 
 
