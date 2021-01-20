@@ -2,20 +2,38 @@
 ================
 unweighted_nopath文件下
 ================
+tool_inorde/richclub.py
+----------
+    该文件实现的是富人俱乐部零模型算法
+    其中函数rich_club_create实现的是生成最强富人俱乐部零模型，该函数的系数中，G0是图文件，rich_degree是设置的富边系数（默认为5），swapn为有效交换次数，max_tries为最大尝试次数。
+    函数rich_club_break实现的是生成最弱富人俱乐部零模型，其中系数和上面一样。
+    两个函数的调用代码在文件最后。
+    其中需要的包为networkx2.5，环境为python3。
+tool_inorde/match.py
+----------
+    该文件实现的是同配/异配零模型算法
+    其中函数assort_mixing实现的是生成最强同配零模型，该函数的系数中，G0是图文件，nswap为有效交换次数，max_tries为最大尝试次数。
+    函数disassort_mixing实现的是生成最强异配零模型，其中系数和上面一样。
+    两个函数的调用代码在文件最后。
+    其中需要的包为networkx2.5，环境为python3。
+tool_inorde/Clustering coefficient.py
+--------
+    该文件实现的是聚类系数零模型算法
+    其中函数enhanceClu实现的是生成最强聚类系数零模型，该函数的系数中，G0是图文件，nswap为有效交换次数，max_tries为最大尝试次数。
+    函数weakenClu实现的是生成最弱聚类系数零模型，其中系数和上面一样。
+    两个函数的调用代码在文件最后。
+    其中需要的包为networkx2.5，环境为python3。
 unweighted_null_model.py
 ------
     该文件包含了基于断边重连的0、1、2、2.5、3阶零模型
+    调用代码在文件最后。
     其中需要的包为networkx2.5，环境为python3
-tool_inorde.py
--------
-     该文件包含了基于断边重连的最强富人俱乐部、最弱富人俱乐部、最强同配、最强异配、最强聚类系数、最弱聚类系数零模型算法
-     其中需要的包为networkx2.5，环境为python3
 community_class.py
 --------
     该文件包含了基于断边重连的1、2、3、2.5阶社团内部零模型,1、2、3、2.5阶社团间零模型以及增强社团、减弱社团零模型算法
-    其中需要的包为igraph0.7.1(pycairo-1.18.2)、networkx2.2，环境为python2
+    其中需要的包为igraph0.7.1(pycairo-1.18.2)、networkx2.2，环境为python2.7,在python3环境下，程序会报错运行不了。
 说明
 -----
-    每个py文件里都有调用函数的代码，只需要把函数名、读取文件和生成文件的名字改变一下就可以生成不同的零模型。其中社团零模型部分多了一个node_community_list参数
+    每个py文件里都有调用函数的代码，只需要把函数名、读取文件和生成文件的名字改变一下就可以生成不同的零模型。其中社团零模型部分多了一个node_community_list参数、富人俱乐部零模型部分多了rich_degree参数。
 
 
